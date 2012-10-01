@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo $(date) restarted >> /var/log/projects/kopilka/restart.log
+exec chpst -u www /home/www/projects/kopilka/ENV/bin/python /home/www/projects/kopilka/src/manage.py runfcgi errlog=/var/log/projects/kopilka/fcgi-error.log method=prefork host=127.0.0.1 port=3036 pidfile=/home/www/projects/kopilka/pid daemonize=false
